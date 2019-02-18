@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmoothScroll | Getting Started and Demos</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark-reasonable.min.css">
+<style>
+.u-hidden {display: none !important;}
+</style>
+</head>
+<body>
+<div class="container u-mb50">
+<h1>SmoothScroll <small>Getting Started and Demos</small></h1>
+<p class="lead">This smooth scroll sample dose not depend on a specific library.</p>
+
+<section class="u-mt50">
+<h2>Demos</h2>
+</section>
+<hr>
+
+<section class="u-mt30">
+  <h2>Getting statrted</h2>
+  <section>
+    <h3 class="u-mt30">1. Download and install</h3>
+  </section>
+  <section>
+    <h3 class="u-mt30">2. Include Files To Website</h3>
+  </section>
+  <section>
+    <h3 class="u-mt30">3. Add HTML Layout</h3>
+    <section>
+    </section>
+  </section>
+</section>
+
+<section class="u-mt30">
+  <h2>Document</h2>
+  <section>
+    <h3 class="u-mt30">HTML</h3>
+    <section>
+      <h4 class="u-mt20">Scroll Trigger</h4>
+      <ul>
+        <li>Set class <code>js-smoothscroll</code>to the scroll trigger element.</li>
+      </ul>
+      <section>
+        <h5>Example</h5>
+        <pre><code class="js-code html" data-target="demo-example"></code></pre>
+        <div id="demo-example" class="u-hidden">
+<a class="js-smoothscroll" href="#target-block-id">Link Label</a>
+{{ Some content  }}
+<div id="target-block-id">
+  Target Block
+</div>
+        </div>
+      </section>
+      <section>
+        <h5 class="u-mt30">Options</h5>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th>Parameter</th>
+              <th>Example</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Scroll Target</td>
+              <td>href="#hoge"</td>
+              <td class="text-danger">required</td>
+              <td>
+                <p>Set selector of scroll target block.</p>
+                <p class="text-danger">
+                  <label>NG pattern:</label> <span>href="hoge"</span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Header Selector</td>
+              <td>data-header="#header-name"</td>
+              <td>(none)</td>
+              <td>
+                <p>
+                  If your site has fixed header, set header selector to this.<br>
+                  And set parameter of <code>data-header_ajust</code>.
+                </p>
+                <p class="text-danger">
+                  <label>NG pattern:</label> <span>data-header="header-name"</span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Ajust height</td>
+              <td>data-header_ajust="-50"</td>
+              <td>(none)</td>
+              <td>
+                <p>
+                  If set this, ajusted scroll Y position.<br>
+                  You need to set <code>data-header</code> together.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </section>
+  </section>
+  <section>
+    <h3 class="u-mt30">JavaScript</h3>
+    <p>Please add below script into the script file loaded commonly.</p>
+    <p><a href="../src/js/smoothscroll.js" target="_blank">view source</a></p>
+  </section>
+  <section>
+    <h3 class="u-mt30">CSS</h3>
+  </section>
+</section>
+</div>
+
+<!-- For display sample -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>
+hljs.initHighlightingOnLoad();
+document.addEventListener('DOMContentLoaded', function() {
+  var $code = Array.prototype.slice.call(document.querySelectorAll('.js-code'), 0);
+  if ($code.length > 0) {
+    $code.forEach(function ($el) {
+      var targetId = $el.dataset.target;
+      if (!targetId)  return;
+      var $targetEl = document.getElementById(targetId);
+      if ($targetEl === undefined || $targetEl === null) return;
+      $el.innerText = $targetEl.innerHTML.replace(/\s*style=".+"/g, '').trim();
+    });
+  }
+});
+</script>
+<script src="../dist/js/smoothscroll.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  smoothscroll.init();
+});
+</script>
+</body>
+</html>
+
