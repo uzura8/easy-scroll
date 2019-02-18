@@ -1,4 +1,4 @@
-const smoothscroll = {
+const EasyScroll = {
   handleEvent: function(scopeElm, triggerSelector, type, func, isRemove = false) {
     const els = scopeElm.querySelectorAll(triggerSelector);
     if (els === null || !els.length) return;
@@ -21,7 +21,7 @@ const smoothscroll = {
     if (scopeElm === undefined) scopeElm = document;
 
     const selector = (options.triggerSelector !== undefined) ?
-      options.triggerSelector : '.js-smoothscroll';
+      options.triggerSelector : '.js-scroll';
     this.handleEvent(scopeElm, selector, 'click', this.scroll);
   },
 
@@ -29,16 +29,17 @@ const smoothscroll = {
     if (scopeElm === undefined) scopeElm = document;
 
     const selector = (options.triggerSelector !== undefined) ?
-      options.triggerSelector : '.js-smoothscroll';
+      options.triggerSelector : '.js-scroll';
     this.handleEvent(scopeElm, selector, 'click', this.scroll, true);
   },
 
   scroll: function(event) {
     event.preventDefault();
+
     const ajustHeight = this.eventElm.dataset.header_ajust !== undefined ?
       parseInt(this.eventElm.dataset.header_ajust) : 0;
     const headerSelector = this.eventElm.dataset.header !== undefined ?
-      parseInt(this.eventElm.dataset.header) : 0;
+      this.eventElm.dataset.header : '';
 
     const duration = 500;
     const easing = function (t, b, c, d) { return c * (0.5 - Math.cos(t / d * Math.PI) / 2) + b; };
@@ -69,4 +70,4 @@ const smoothscroll = {
   }
 }
 
-export default smoothscroll;
+export default EasyScroll;

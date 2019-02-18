@@ -1,15 +1,28 @@
 {
-  "name": "smoothscroll",
+  "name": "easy-scroll",
   "version": "1.0.0",
-  "description": "smoothscroll",
+  "description": "Easy Scroll is smoooth scroll not depended on a specific JavaScript library.",
   "main": ".eslintrc.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/uzura8/easy-scroll#readme",
+  "keywords": [
+    "scroll",
+    "smoothscroll",
+    "JavaScript"
+  ],
+  "license": "MIT",
+  "main": "EasyScroll.js",
+  "name": "easy-scroll",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzura8/easy-scroll.git"
+  },
   "author": "Shingo Yamada <uzuranoie@gmail.com> (https://github.com/uzura8)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "commonjs": "0.0.1",
     "eslint": "^5.13.0",

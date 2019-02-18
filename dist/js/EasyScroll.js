@@ -1,10 +1,10 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.smoothscroll = factory());
+  (global = global || self, global.EasyScroll = factory());
 }(this, function () { 'use strict';
 
-  var smoothscroll = {
+  var EasyScroll = {
     handleEvent: function(scopeElm, triggerSelector, type, func, isRemove) {
       if ( isRemove === void 0 ) isRemove = false;
 
@@ -31,7 +31,7 @@
       if (scopeElm === undefined) { scopeElm = document; }
 
       var selector = (options.triggerSelector !== undefined) ?
-        options.triggerSelector : '.js-smoothscroll';
+        options.triggerSelector : '.js-scroll';
       this.handleEvent(scopeElm, selector, 'click', this.scroll);
     },
 
@@ -41,14 +41,17 @@
       if (scopeElm === undefined) { scopeElm = document; }
 
       var selector = (options.triggerSelector !== undefined) ?
-        options.triggerSelector : '.js-smoothscroll';
+        options.triggerSelector : '.js-scroll';
       this.handleEvent(scopeElm, selector, 'click', this.scroll, true);
     },
 
     scroll: function(event) {
       event.preventDefault();
+
       var ajustHeight = this.eventElm.dataset.header_ajust !== undefined ?
         parseInt(this.eventElm.dataset.header_ajust) : 0;
+      var headerSelector = this.eventElm.dataset.header !== undefined ?
+        this.eventElm.dataset.header : '';
 
       var duration = 500;
       var easing = function (t, b, c, d) { return c * (0.5 - Math.cos(t / d * Math.PI) / 2) + b; };
@@ -57,7 +60,7 @@
       if (!targetElm) { return; }
       var targetPos = targetElm.getBoundingClientRect().top;
       if (ajustHeight != 0) {
-        var existsHeader = document.getElementById('netshop-header') !== null;
+        var existsHeader = document.querySelector(headerSelector) !== null;
         if (existsHeader) { targetPos += ajustHeight; }
       }
       var scrollElm = (function() {
@@ -79,6 +82,6 @@
     }
   };
 
-  return smoothscroll;
+  return EasyScroll;
 
 }));

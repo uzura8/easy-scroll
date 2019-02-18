@@ -3,11 +3,11 @@ import commonjs from 'rollup-plugin-commonjs';
 import buble from 'rollup-plugin-buble';
 
 export default {
-  input: 'src/js/smoothscroll.js',
+  input: 'src/js/EasyScroll.js',
   output: {
-    file: 'dist/js/smoothscroll.js',
+    file: 'dist/js/EasyScroll.js',
     format: 'umd',
-    name: 'smoothscroll',
+    name: 'EasyScroll',
   },
   plugins: [
     nodeResolve(),
